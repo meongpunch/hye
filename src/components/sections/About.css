@@ -1,0 +1,348 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.about {
+  background: #f0ebe6;
+  color: #111;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.about-panel {
+  padding: 120px 24px;
+}
+
+.about-panel-inner {
+  width: 100vw;
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+
+.about-panel-one {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.about-panel-one.is-active {
+  opacity: 1;
+}
+
+.about-quote-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: none;
+  width: 100vw;
+}
+
+.about-scroll-viewport {
+  overflow: visible;
+  width: 100vw;
+  padding: 120px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.about-quote {
+  margin: 0;
+  font-family: "Epilogue", system-ui, sans-serif;
+  font-size: 170px;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  display: inline-block;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  width: max-content;
+  will-change: transform;
+}
+
+.about-quote .char {
+  display: inline-block;
+}
+/* 쪼개진 모든 글자(공백 포함)의 기본 속성 */
+.about-quote div {
+  display: inline-block !important;
+  position: relative !important;
+}
+.about-quote .is-space {
+  display: inline-block !important;
+  min-width: 0.3em !important;
+  pointer-events: none;
+}
+
+.about-sticker {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, left, top, opacity;
+}
+
+.about-sticker-new {
+  width: clamp(70px, 8vw, 110px);
+  transform: translate(-50%, -50%) rotate(-8deg) scale(1.02);
+}
+
+.about-sticker-rec {
+  width: clamp(80px, 9vw, 130px);
+  transform: translate(-50%, -50%) rotate(4deg) scale(1.02);
+}
+
+.about-sticker-watch {
+  width: clamp(64px, 7vw, 96px);
+  transform: translate(-50%, -50%) rotate(8deg) scale(1.02);
+}
+
+.about-body {
+  font-family: "Pretendard", sans-serif;
+  margin: 28px 0 0;
+  max-width: 800px;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #2f2b26;
+  font-weight: 300;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-panel-two {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+.about-panel-copy {
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+}
+
+.about-intro {
+  position: relative;
+  text-align: center;
+  padding: 10px 0 54px;
+}
+
+.about-intro-title {
+  margin: 0 0 12px;
+  font-family: "Epilogue", system-ui, sans-serif;
+  font-size: clamp(36px, 6.67vw, 128px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.6px;
+  color: #111;
+}
+
+.about-intro-sub {
+  margin: 0;
+  font-size: clamp(36px, 6.04vw, 116px);
+  line-height: 1;
+  color: #111;
+}
+
+.about-underline {
+  width: min(890px, 78vw);
+  height: 26px;
+  margin: 10px auto 0;
+  display: block;
+}
+
+.about-underline path {
+  stroke-dasharray: 9999;
+  stroke-dashoffset: 9999;
+}
+
+.about-copy-sticker {
+  position: absolute;
+  right: 20px;
+  top: 82px;
+  width: clamp(70px, 8vw, 110px);
+  transform: rotate(-8deg);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.about-intro-sub .t-italic {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}
+
+.about-intro-sub .t-roman {
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+}
+
+.about-cards {
+  position: relative;
+  width: min(980px, 92vw);
+  height: clamp(260px, 48vw, 420px);
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+}
+
+.about-flower {
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  width: clamp(140px, 22vw, 260px);
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.about-card {
+  position: absolute;
+  width: clamp(180px, 26vw, 260px);
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+.about-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-tag {
+  position: absolute;
+  z-index: 10;
+  left: 16px;
+  bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #0c2f9b;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+.about-tag-2 {
+  left: 12px;
+  bottom: 18px;
+}
+
+.about-tag-3 {
+  right: 14px;
+  left: auto;
+  top: 14px;
+  bottom: auto;
+}
+
+.about-card-1 {
+  transform: translateX(-230px) rotate(-6deg);
+  z-index: 3;
+}
+
+.about-card-2 {
+  transform: translateX(-40px) rotate(-2deg);
+  z-index: 2;
+}
+
+.about-card-3 {
+  transform: translateX(140px) rotate(2deg);
+  z-index: 2;
+}
+
+.about-card-4 {
+  transform: translateX(320px) rotate(6deg);
+  z-index: 1;
+}
+
+.about-cards:hover .about-card-1 {
+  transform: translateX(-300px) translateY(-10px) rotate(-12deg);
+}
+
+.about-cards:hover .about-card-2 {
+  transform: translateX(-60px) translateY(18px) rotate(6deg);
+}
+
+.about-cards:hover .about-card-3 {
+  transform: translateX(180px) translateY(-16px) rotate(-6deg);
+}
+
+.about-cards:hover .about-card-4 {
+  transform: translateX(360px) translateY(12px) rotate(12deg);
+}
+
+.about-memo {
+  font-family: "Pretendard", sans-serif;
+  margin: 10px auto 0;
+  max-width: 720px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3a3530;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .about-panel {
+    padding: 90px 20px;
+  }
+
+  .about-sticker-new {
+    left: 120px;
+  }
+
+  .about-sticker-rec {
+    right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-panel {
+    padding: 72px 16px;
+  }
+
+  .about-quote {
+    font-size: 120px;
+  }
+
+  .about-body {
+    font-size: 14px;
+  }
+
+  .about-cards {
+    height: clamp(240px, 80vw, 320px);
+  }
+
+  .about-flower {
+    left: -30px;
+  }
+
+  .about-card {
+    width: clamp(140px, 40vw, 200px);
+    border-radius: 16px;
+  }
+
+  .about-card-1 {
+    transform: translateX(-140px) rotate(-6deg);
+  }
+
+  .about-card-2 {
+    transform: translateX(-20px) rotate(-2deg);
+  }
+
+  .about-card-3 {
+    transform: translateX(100px) rotate(2deg);
+  }
+
+  .about-card-4 {
+    transform: translateX(210px) rotate(6deg);
+  }
+}

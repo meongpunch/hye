@@ -1,0 +1,87 @@
+import "./Hero.css";
+
+export default function Hero() {
+  return (
+    <div className="hero">
+      <div className="hero-stage">
+        <img
+          className="hero-sticker hero-sticker-rec"
+          src="/img/sticker-iloverec.svg"
+          alt="I love REC sticker"
+        />
+        <img
+          className="hero-sticker hero-sticker-onair"
+          src="/img/sticker-onair.svg"
+          alt="On air sticker"
+        />
+        <img
+          className="hero-sticker hero-sticker-isee"
+          src="/img/sticker-iseeikeep.svg"
+          alt="I see and I keep sticker"
+        />
+        <img
+          className="hero-sticker hero-sticker-love"
+          src="/img/sticker-hyelovethis.svg"
+          alt="Hye love this mood sticker"
+        />
+        <img
+          className="hero-sticker hero-sticker-scroll"
+          src="/img/sticker-scrolldown.svg"
+          alt="Scroll down sticker"
+        />
+        <svg
+          className="hero-mask"
+          viewBox="0 0 1600 900"
+          preserveAspectRatio="xMidYMid meet"
+          role="img"
+          aria-label="Design shaped by my view"
+        >
+          <defs>
+            <mask id="hero-text-mask" maskUnits="userSpaceOnUse">
+              <rect width="1600" height="900" fill="black" />
+              <text className="hero-text hero-text-design" x="80" y="250">
+                Design
+              </text>
+              <text className="hero-text hero-text-shaped" x="620" y="475">
+                shaped
+              </text>
+              <text className="hero-text hero-text-by" x="80" y="690">
+                by my
+              </text>
+              <text className="hero-text hero-text-view" x="840" y="700">
+                view
+              </text>
+            </mask>
+          </defs>
+
+          <foreignObject width="1600" height="900" mask="url(#hero-text-mask)">
+            <video
+              className="hero-video"
+              src="/img/hero-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </foreignObject>
+
+          <text
+            className="hero-text hero-text-design hero-text-solid"
+            x="80"
+            y="250"
+          >
+            Design
+          </text>
+          <text
+            className="hero-text hero-text-view hero-text-solid"
+            x="840"
+            y="700"
+          >
+            view
+          </text>
+        </svg>
+      </div>
+      <span className="hero-sr">Design shaped by my view</span>
+    </div>
+  );
+}
