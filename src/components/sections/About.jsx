@@ -267,7 +267,7 @@ export default function About() {
         {
           opacity: 1,
           scale: 1,
-          rotate: -8,
+          rotate: 18,
           y: 0,
           duration: 0.6,
           ease: "back.out(1.7)",
@@ -386,7 +386,7 @@ export default function About() {
           <div className="about-cards">
             <img
               className="about-flower"
-              src="/img/about-svg.png"
+              src="/img/about-svg.svg"
               alt=""
               aria-hidden="true"
             />
