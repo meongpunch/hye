@@ -1,0 +1,151 @@
+.keyword {
+  background: #efe9e3;
+  color: #111111;
+  padding: 360px 6vw 280px;
+}
+
+.keyword-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  gap: 240px;
+  justify-items: center;
+}
+
+.keyword-header {
+  text-align: center;
+}
+
+.keyword-title {
+  margin: 0;
+  font-size: clamp(52px, 7vw, 120px);
+  line-height: 0.95;
+  display: grid;
+}
+
+.keyword-title-main {
+  font-family: "Epilogue", system-ui, sans-serif;
+  font-weight: 800;
+}
+
+.keyword-title-italic {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.keyword-cards {
+  position: relative;
+  width: min(1100px, 90vw);
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  --tilt-x: 0;
+  --tilt-y: 0;
+}
+
+.keyword-card {
+  position: absolute;
+  width: 350px;
+  min-height: 460px;
+  border-radius: 18px;
+  padding: 110px 36px 26px;
+  background: var(--bg, #111111);
+  color: var(--fg, #ffffff);
+  transform: translate(var(--x), var(--y)) rotate(var(--rot))
+    rotateX(calc(var(--tilt-x) * var(--tilt, 5) * 1deg))
+    rotateY(calc(var(--tilt-y) * var(--tilt, 5) * 1deg));
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.keyword-sticker {
+  position: absolute;
+  top: -18px;
+  left: 16px;
+  width: 150px;
+  height: auto;
+  pointer-events: none;
+}
+
+.keyword-sticker-ilove {
+  width: 150px;
+  top: -22px;
+  left: 100px;
+  transform: rotate(-10deg);
+}
+
+.keyword-sticker-isee {
+  width: 158px;
+  top: -40px;
+  left: 152px;
+}
+
+.keyword-sticker-lovethis {
+  width: 120px;
+  height: auto;
+  top: -50px;
+  left: 128px;
+  transform: rotate(-25deg);
+}
+
+.keyword-sticker-watchit {
+  width: 146px;
+  top: -44px;
+  left: 58px;
+}
+
+.keyword-sticker-new {
+  width: 145px;
+  top: -56px;
+  left: 100px;
+  transform: rotate(15deg);
+}
+
+.keyword-card:hover {
+  transform: translate(var(--x), var(--y)) rotate(0deg) scale(1.1);
+  z-index: 3;
+}
+
+.keyword-card-title {
+  margin: 0 0 140px;
+  font-size: 36px;
+  font-weight: 700;
+  white-space: pre-line;
+  font-family: "Epilogue", system-ui, sans-serif;
+}
+
+.keyword-card-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+  font-family: "Pretendard", sans-serif;
+}
+
+@media (max-width: 900px) {
+  .keyword-inner {
+    gap: 80px;
+  }
+
+  .keyword-cards {
+    min-height: 520px;
+  }
+
+  .keyword-card {
+    position: relative;
+    transform: rotate(var(--rot));
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .keyword {
+    padding: 110px 6vw 160px;
+  }
+
+  .keyword-card {
+    width: min(260px, 78vw);
+  }
+}

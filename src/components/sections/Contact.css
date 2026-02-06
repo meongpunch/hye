@@ -1,0 +1,236 @@
+.contact {
+  background: #efe9e3;
+  padding: 140px 1vw 30px;
+  color: #ffffff;
+}
+
+.contact-frame {
+  background: #050505;
+  border-radius: 20px;
+  padding: 116px 135px 0px;
+  margin: 0 auto;
+  display: grid;
+  gap: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-top {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.contact-card {
+  display: grid;
+  gap: 0;
+  font-family: "Pretendard", sans-serif;
+  align-content: start;
+}
+
+.contact-card h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.contact-card p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-card:nth-child(3) p {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 8px;
+}
+
+.contact-card small {
+  display: block;
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-chip {
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 6px 14px;
+  border-radius: 500px 500px 500px 0;
+  font-size: 18px;
+  background: #f0ebe6;
+  color: #111111;
+  width: max-content;
+  margin-bottom: 32px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.contact-bottom {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.contact-title {
+  margin: 0;
+  font-size: clamp(60px, 12vw, 230px);
+  font-family: "Epilogue", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #f0ebe6;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.02em;
+  line-height: 0.9;
+  width: fit-content;
+}
+
+.contact-title-letter {
+  display: inline-block;
+  transform: translate(var(--xshift, 0px), var(--shift, 0px))
+    rotate(var(--rot, 0deg));
+  transform-origin: center bottom;
+}
+
+.contact-title-space {
+  display: inline-block;
+  width: 0.45em;
+}
+
+.contact-sticker {
+  position: absolute;
+  opacity: 0;
+  transform: translate(0, 0) rotate(var(--stick-rot, 0deg)) scale(0.7);
+  transform-origin: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.contact-sticker--c {
+  left: 15%;
+  bottom: 12%;
+  width: clamp(100px, 12.5vw, 180px);
+  --stick-rot: 7deg;
+}
+
+.contact-sticker--m {
+  right: 14%;
+  bottom: 6%;
+  width: clamp(70px, 9vw, 120px);
+  --stick-rot: 8deg;
+}
+
+.contact-sticker--e {
+  right: 40%;
+  bottom: 14%;
+  width: clamp(80px, 10.4vw, 150px);
+  --stick-rot: -6deg;
+}
+
+.contact.is-inview .contact-sticker {
+  opacity: 1;
+  animation: contact-stick 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.contact.is-inview .contact-sticker--c {
+  animation-delay: 0.1s;
+}
+
+.contact.is-inview .contact-sticker--m {
+  animation-delay: 0.35s;
+}
+
+.contact.is-inview .contact-sticker--e {
+  animation-delay: 0.6s;
+}
+
+@keyframes contact-stick {
+  0% {
+    opacity: 0;
+    transform: translate(-12px, 18px) rotate(0deg) scale(0.72);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(2px, -2px) rotate(2deg) scale(1.05);
+  }
+  80% {
+    transform: translate(-1px, 1px) rotate(-1deg) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(var(--stick-rot, 0deg)) scale(1);
+  }
+}
+
+.contact-line {
+  position: absolute;
+  right: 7%;
+  bottom: 25%;
+  width: clamp(90px, 10vw, 150px);
+  height: auto;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.contact-line-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.contact.is-inview .contact-line-path {
+  animation: contact-line-draw 1.2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes contact-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-sticker,
+  .contact.is-inview .contact-sticker {
+    animation: none;
+    opacity: 1;
+    transform: rotate(var(--stick-rot, 0deg)) scale(1);
+  }
+
+  .contact-line-path,
+  .contact.is-inview .contact-line-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .contact-frame {
+    padding: 40px 32px 60px;
+  }
+
+  .contact-top {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-title {
+    font-size: clamp(48px, 12vw, 96px);
+  }
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 110px 6vw 160px;
+  }
+
+  .contact-frame {
+    padding: 36px 24px 54px;
+  }
+}

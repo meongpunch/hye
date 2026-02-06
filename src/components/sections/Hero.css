@@ -31,42 +31,73 @@
   width: 140px;
   height: auto;
   pointer-events: none;
+  opacity: 0;
+  transform: translate(0, 0) rotate(var(--stick-rot, 0deg)) scale(0.7);
 }
 
 .hero-sticker-rec {
-  top: 27.5%;
-  left: 38%;
-  transform: rotate(-9deg);
-  width: 180px;
+  top: 20.5%;
+  left: 36%;
+  --stick-rot: -9deg;
+  width: 190px;
 }
 
 .hero-sticker-onair {
-  top: 33%;
-  right: 18%;
-  transform: rotate(10deg);
+  top: 30%;
+  right: 12%;
+  --stick-rot: 10deg;
   width: 110px;
 }
 
 .hero-sticker-isee {
   top: 48%;
   left: 52%;
-  transform: rotate(17deg);
+  --stick-rot: 17deg;
   width: 150px;
 }
 
 .hero-sticker-love {
   top: 52%;
-  left: 18%;
-  transform: rotate(-12deg);
+  left: 13%;
+  --stick-rot: -12deg;
   width: 140px;
 }
 
 .hero-sticker-scroll {
   top: 59%;
-  right: 15%;
-  transform: rotate(0deg);
+  right: 10%;
+  --stick-rot: 0deg;
   width: 140px;
-  animation: hero-float 2.8s ease-in-out infinite;
+}
+
+.hero.is-inview .hero-sticker {
+  opacity: 1;
+  animation: hero-stick 0.8s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+.hero.is-inview .hero-sticker-rec {
+  animation-delay: 0.1s;
+}
+
+.hero.is-inview .hero-sticker-onair {
+  animation-delay: 0.35s;
+}
+
+.hero.is-inview .hero-sticker-isee {
+  animation-delay: 0.6s;
+}
+
+.hero.is-inview .hero-sticker-love {
+  animation-delay: 0.85s;
+}
+
+.hero.is-inview .hero-sticker-scroll {
+  animation-delay: 1.1s;
+  animation-name: hero-stick, hero-float;
+  animation-duration: 0.8s, 1.8s;
+  animation-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1), ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: both, both;
 }
 
 .hero-mask {
@@ -127,13 +158,39 @@
 
 @keyframes hero-float {
   0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
     transform: translateY(-10px) rotate(0deg);
   }
+  50% {
+    transform: translateY(10px) rotate(0deg);
+  }
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(-10px) rotate(0deg);
+  }
+}
+
+@keyframes hero-stick {
+  0% {
+    opacity: 0;
+    transform: translate(-12px, 18px) rotate(0deg) scale(0.72);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(2px, -2px) rotate(2deg) scale(1.05);
+  }
+  80% {
+    transform: translate(-1px, 1px) rotate(-1deg) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(var(--stick-rot, 0deg)) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sticker,
+  .hero.is-inview .hero-sticker {
+    animation: none;
+    opacity: 1;
   }
 }
 

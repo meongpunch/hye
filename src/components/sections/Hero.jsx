@@ -1,8 +1,27 @@
+import { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 
 export default function Hero() {
+  const heroRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.35 },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="hero">
+    <div className={`hero${isInView ? " is-inview" : ""}`} ref={heroRef}>
       <div className="hero-stage">
         <img
           className="hero-sticker hero-sticker-rec"

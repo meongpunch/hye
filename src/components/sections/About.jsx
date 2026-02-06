@@ -94,6 +94,12 @@ export default function About() {
       const setR = chars.map((char) =>
         gsap.quickSetter(char, "rotation", "deg"),
       );
+      const smoothFactor = 0.3;
+      const current = chars.map((_, i) => ({
+        x: charOffsets[i].x,
+        y: charOffsets[i].y,
+        r: charOffsets[i].r,
+      }));
 
       const smooth = (v) => 1 - Math.pow(1 - v, 3); // easeOutCubic for softer join
       const setNewLeft = gsap.quickSetter(newSticker, "left", "px");
@@ -145,9 +151,27 @@ export default function About() {
           );
           const eased = smooth(t);
           const offset = charOffsets[i];
-          setX[i](offset.x * (1 - eased));
-          setY[i](offset.y * (1 - eased));
-          setR[i](offset.r * (1 - eased));
+          const targetX = offset.x * (1 - eased);
+          const targetY = offset.y * (1 - eased);
+          const targetR = offset.r * (1 - eased);
+          current[i].x = gsap.utils.interpolate(
+            current[i].x,
+            targetX,
+            smoothFactor,
+          );
+          current[i].y = gsap.utils.interpolate(
+            current[i].y,
+            targetY,
+            smoothFactor,
+          );
+          current[i].r = gsap.utils.interpolate(
+            current[i].r,
+            targetR,
+            smoothFactor,
+          );
+          setX[i](current[i].x);
+          setY[i](current[i].y);
+          setR[i](current[i].r);
         });
 
         const wrapRect = wrap.getBoundingClientRect();

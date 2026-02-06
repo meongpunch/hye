@@ -1,8 +1,49 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Works.css";
 
 export default function Works() {
   const worksRef = useRef(null);
+  const [isWorksInView, setIsWorksInView] = useState(false);
+  const cloneStackRef = useRef(null);
+  const cloneStageRef = useRef(null);
+  const scribblePathRef = useRef(null);
+  const [activeClone, setActiveClone] = useState(0);
+  const dragState = useRef({
+    startX: 0,
+    dragging: false,
+    pointerId: null,
+    wasDragged: false,
+  });
+  const cursorState = useRef({ visible: false, x: 0, y: 0 });
+  const cursorPopTimeout = useRef(null);
+
+  const cloneItems = [
+    {
+      title: "crew a la mode",
+      img: "/img/clonecoding-crew.png",
+      href: "https://crewalamode.com",
+    },
+    {
+      title: "daebang",
+      img: "/img/clonecoding-daebang.png",
+      href: "https://daebang.co.kr",
+    },
+    {
+      title: "musign",
+      img: "/img/clonecoding-musign.png",
+      href: "https://musign.com",
+    },
+    {
+      title: "pho",
+      img: "/img/clonecoding-pho.png",
+      href: "https://phostudio.com",
+    },
+    {
+      title: "y studio",
+      img: "/img/clonecoding-ystudio.png",
+      href: "https://ystudio.com",
+    },
+  ];
   const renderDots = (value) => {
     const filled = Math.round(value / 10);
     return Array.from({ length: 10 }).map((_, index) => (
@@ -25,6 +66,7 @@ export default function Works() {
     gsap.registerPlugin(ScrollTrigger);
 
     let tween = null;
+    let scribbleTween = null;
     let disposed = false;
 
     const init = async () => {
@@ -66,6 +108,25 @@ export default function Works() {
         },
       });
 
+      if (scribblePathRef.current) {
+        const path = scribblePathRef.current;
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = `${length}`;
+        path.style.strokeDashoffset = `${length}`;
+        path.getBoundingClientRect();
+
+        scribbleTween = gsap.to(path, {
+          strokeDashoffset: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: path,
+            start: "top 80%",
+            end: "bottom 55%",
+            scrub: 0.4,
+          },
+        });
+      }
+
       ScrollTrigger.refresh(true);
     };
 
@@ -77,15 +138,164 @@ export default function Works() {
 
     return () => {
       disposed = true;
+      if (cursorPopTimeout.current) {
+        clearTimeout(cursorPopTimeout.current);
+      }
       window.removeEventListener("resize", refresh);
       window.removeEventListener("pageshow", refresh);
       tween?.scrollTrigger?.kill();
       tween?.kill();
+      scribbleTween?.scrollTrigger?.kill();
+      scribbleTween?.kill();
     };
   }, []);
 
+  useEffect(() => {
+    const works = worksRef.current;
+    if (!works) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsWorksInView(entry.isIntersecting);
+      },
+      { threshold: 0.3, rootMargin: "0px 0px -18% 0px" },
+    );
+
+    observer.observe(works);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const works = worksRef.current;
+    if (!works) return;
+
+    const stickers = Array.from(works.querySelectorAll(".works-sticker"));
+    if (!stickers.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-stuck");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -5% 0px" },
+    );
+
+    stickers.forEach((sticker) => observer.observe(sticker));
+    return () => observer.disconnect();
+  }, []);
+
+  const totalClones = cloneItems.length;
+
+  const clampIndex = (next) => {
+    const mod = ((next % totalClones) + totalClones) % totalClones;
+    return mod;
+  };
+
+  const handlePointerDown = (event) => {
+    if (totalClones <= 1) return;
+    const stack = cloneStackRef.current;
+    if (stack && event.pointerType !== "touch") {
+      stack.setAttribute("data-cursor-pop", "true");
+      if (cursorPopTimeout.current) {
+        clearTimeout(cursorPopTimeout.current);
+      }
+      cursorPopTimeout.current = setTimeout(() => {
+        stack.setAttribute("data-cursor-pop", "false");
+      }, 180);
+    }
+    dragState.current = {
+      startX: event.clientX,
+      dragging: true,
+      pointerId: event.pointerId,
+      wasDragged: false,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event) => {
+    const stack = cloneStackRef.current;
+    const stage = cloneStageRef.current;
+    if (stack) {
+      const rect = stack.getBoundingClientRect();
+      const isInside =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+
+      cursorState.current = {
+        visible: isInside && event.pointerType !== "touch",
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
+
+      stack.style.setProperty("--cursor-x", `${cursorState.current.x}px`);
+      stack.style.setProperty("--cursor-y", `${cursorState.current.y}px`);
+      stack.setAttribute(
+        "data-cursor-visible",
+        cursorState.current.visible ? "true" : "false",
+      );
+    }
+
+    if (stage) {
+      const rect = stage.getBoundingClientRect();
+      const isInside =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+      const isOnCard = Boolean(event.target.closest(".works-clone-card"));
+      const visible = isInside && !isOnCard && event.pointerType !== "touch";
+      stage.style.setProperty("--drag-x", `${event.clientX - rect.left}px`);
+      stage.style.setProperty("--drag-y", `${event.clientY - rect.top}px`);
+      stage.setAttribute("data-drag-visible", visible ? "true" : "false");
+    }
+
+    if (!dragState.current.dragging) return;
+    const deltaX = event.clientX - dragState.current.startX;
+    if (Math.abs(deltaX) < 10) return;
+    dragState.current.dragging = false;
+    dragState.current.wasDragged = true;
+    if (deltaX < 0) {
+      setActiveClone((prev) => clampIndex(prev + 1));
+    } else {
+      setActiveClone((prev) => clampIndex(prev - 1));
+    }
+  };
+
+  const handlePointerUp = (event) => {
+    if (dragState.current.pointerId === event.pointerId) {
+      dragState.current.dragging = false;
+      dragState.current.pointerId = null;
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  const handlePointerLeave = () => {
+    const stack = cloneStackRef.current;
+    const stage = cloneStageRef.current;
+    if (stack) {
+      stack.setAttribute("data-cursor-visible", "false");
+    }
+    if (stage) {
+      stage.setAttribute("data-drag-visible", "false");
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      setActiveClone((prev) => clampIndex(prev - 1));
+    }
+    if (event.key === "ArrowRight") {
+      setActiveClone((prev) => clampIndex(prev + 1));
+    }
+  };
+
   return (
-    <div className="works" ref={worksRef}>
+    <div className={`works${isWorksInView ? " is-inview" : ""}`} ref={worksRef}>
       <div className="works-spacer" aria-hidden="true" />
       <section className="works-block works-projects">
         <div className="works-header">
@@ -325,11 +535,157 @@ export default function Works() {
       </section>
 
       <section className="works-block works-clone">
-        <h3 className="works-section-title">Clone Coding</h3>
+        <div className="works-clone-header">
+          <h3 className="works-section-title">Clone Coding :</h3>
+        </div>
+        <div
+          className="works-clone-stage"
+          ref={cloneStageRef}
+          role="region"
+          aria-label="Clone coding projects"
+          tabIndex={0}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          onPointerLeave={handlePointerLeave}
+          onKeyDown={handleKeyDown}
+        >
+          <span className="works-clone-drag" aria-hidden="true">
+            drag
+          </span>
+          <div className="works-clone-stack" ref={cloneStackRef}>
+            <span className="works-clone-cursor" aria-hidden="true">
+              click
+            </span>
+            <svg
+              className="works-clone-scribble"
+              viewBox="0 0 136 166"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                ref={scribblePathRef}
+                d="M1.49982 164.24C21.1514 148.478 52.1025 111.795 1.49983 64.1398C25.8594 73.9655 67.7005 71.6319 57.3834 10.7122C74.988 24.632 114.864 42.2775 133.533 1.50053"
+                fill="none"
+                stroke="white"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <img
+              className="works-clone-effect"
+              src="/img/clonecoding-effect.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            {cloneItems.map((item, index) => {
+              const offset = index - activeClone;
+              const normalized =
+                ((offset % totalClones) + totalClones) % totalClones;
+              const orderIndex =
+                normalized <= totalClones / 2
+                  ? normalized
+                  : normalized - totalClones;
+              const absIndex = Math.abs(orderIndex);
+              const isActive = orderIndex === 0;
+              const spreadX = 70;
+              const spreadY = 24;
+              const sideBoost = absIndex === 1 ? 18 : 0;
+              const spreadRot = 7;
+              const baseScale = 0.9;
+              const scaleStep = 0.05;
+              const scale = Math.max(
+                0.78,
+                baseScale + (1 - absIndex) * scaleStep,
+              );
+              return (
+                <a
+                  key={item.title}
+                  className={`works-clone-card${isActive ? " is-active" : ""}`}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  onDragStart={(event) => event.preventDefault()}
+                  style={{
+                    "--stack-index": orderIndex,
+                    "--stack-abs": absIndex,
+                    "--stack-tx": `${orderIndex * (spreadX + sideBoost)}px`,
+                    "--stack-ty": `${absIndex * (spreadY + (sideBoost ? 2 : 0))}px`,
+                    "--stack-rot": `${orderIndex * spreadRot}deg`,
+                    "--stack-scale": scale,
+                  }}
+                  aria-label={`${item.title} clone coding`}
+                  onClick={(event) => {
+                    if (dragState.current.wasDragged) {
+                      event.preventDefault();
+                      dragState.current.wasDragged = false;
+                    }
+                  }}
+                >
+                  <img src={item.img} alt={item.title} draggable="false" />
+                </a>
+              );
+            })}
+          </div>
+          <div className="works-clone-caption">
+            <p className="works-clone-title">{cloneItems[activeClone].title}</p>
+          </div>
+        </div>
       </section>
 
       <section className="works-block works-skill">
-        <h3 className="works-section-title">My Skill</h3>
+        <div className="works-skill-header">
+          <h3 className="works-skill-title">
+            <span className="works-skill-title-main">My working</span> <br />
+            <span className="works-skill-title-italic">tools</span> :
+          </h3>
+        </div>
+        <div className="works-skill-marquee" aria-label="Working tools">
+          <div className="works-skill-track">
+            <div className="works-skill-grid">
+              <img src="/img/skill-ps.svg" alt="Photoshop" />
+              <img src="/img/skill-ai.svg" alt="Illustrator" />
+              <img src="/img/skill-figma.svg" alt="Figma" />
+              <img src="/img/skill-cad.svg" alt="CAD" />
+              <img src="/img/skill-html.svg" alt="HTML" />
+              <img src="/img/skill-css.svg" alt="CSS" />
+              <img src="/img/skill-vscode.svg" alt="VS Code" />
+              <img src="/img/skill-git.svg" alt="Git" />
+              <img src="/img/skill-github.svg" alt="GitHub" />
+              <img src="/img/skill-vscode.svg" alt="VS Code" />
+              <img src="/img/skill-react.svg" alt="React" />
+              <img src="/img/skill-chatgpt.svg" alt="ChatGPT" />
+              <img src="/img/skill-midjourney.svg" alt="Midjourney" />
+              <img src="/img/skill-gemini.svg" alt="Gemini" />
+              <img src="/img/skill-notion.svg" alt="Notion" />
+              <img src="/img/skill-word.svg" alt="Word" />
+              <img src="/img/skill-powerpoint.svg" alt="PowerPoint" />
+              <img src="/img/skill-excel.svg" alt="Excel" />
+            </div>
+            <div className="works-skill-grid" aria-hidden="true">
+              <img src="/img/skill-ps.svg" alt="" />
+              <img src="/img/skill-ai.svg" alt="" />
+              <img src="/img/skill-figma.svg" alt="" />
+              <img src="/img/skill-cad.svg" alt="" />
+              <img src="/img/skill-html.svg" alt="" />
+              <img src="/img/skill-css.svg" alt="" />
+              <img src="/img/skill-vscode.svg" alt="" />
+              <img src="/img/skill-git.svg" alt="" />
+              <img src="/img/skill-github.svg" alt="" />
+              <img src="/img/skill-vscode.svg" alt="" />
+              <img src="/img/skill-react.svg" alt="" />
+              <img src="/img/skill-chatgpt.svg" alt="" />
+              <img src="/img/skill-midjourney.svg" alt="" />
+              <img src="/img/skill-gemini.svg" alt="" />
+              <img src="/img/skill-notion.svg" alt="" />
+              <img src="/img/skill-word.svg" alt="" />
+              <img src="/img/skill-powerpoint.svg" alt="" />
+              <img src="/img/skill-excel.svg" alt="" />
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
