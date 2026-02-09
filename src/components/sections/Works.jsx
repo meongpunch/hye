@@ -21,27 +21,27 @@ export default function Works() {
     {
       title: "crew a la mode",
       img: "/img/clonecoding-crew.png",
-      href: "https://crewalamode.com",
+      href: "https://meongpunch.github.io/crewalamode/",
     },
     {
       title: "daebang",
       img: "/img/clonecoding-daebang.png",
-      href: "https://daebang.co.kr",
+      href: "https://meongpunch.github.io/-daebang2/",
     },
     {
       title: "musign",
       img: "/img/clonecoding-musign.png",
-      href: "https://musign.com",
+      href: "https://meongpunch.github.io/musign/",
     },
     {
       title: "pho",
       img: "/img/clonecoding-pho.png",
-      href: "https://phostudio.com",
+      href: "https://meongpunch.github.io/phomein/",
     },
     {
       title: "y studio",
       img: "/img/clonecoding-ystudio.png",
-      href: "https://ystudio.com",
+      href: "https://meongpunch.github.io/studio/",
     },
   ];
   const renderDots = (value) => {
@@ -212,7 +212,6 @@ export default function Works() {
       pointerId: event.pointerId,
       wasDragged: false,
     };
-    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const handlePointerMove = (event) => {
@@ -270,7 +269,6 @@ export default function Works() {
     if (dragState.current.pointerId === event.pointerId) {
       dragState.current.dragging = false;
       dragState.current.pointerId = null;
-      event.currentTarget.releasePointerCapture(event.pointerId);
     }
   };
 
@@ -283,6 +281,9 @@ export default function Works() {
     if (stage) {
       stage.setAttribute("data-drag-visible", "false");
     }
+    dragState.current.dragging = false;
+    dragState.current.pointerId = null;
+    dragState.current.wasDragged = false;
   };
 
   const handleKeyDown = (event) => {

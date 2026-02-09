@@ -419,7 +419,7 @@ export default function About() {
               <span className="about-tag about-tag-1">it's me, hyewon!</span>
             </div>
             <div className="about-card about-card-2">
-              <img src="/img/about-me2.png" alt="Night street scene" />
+              <img src="/img/about-me4.png" alt="Night street scene" />
               <span className="about-tag about-tag-2">
                 I like to record and organize my thoughts.
               </span>
@@ -428,7 +428,7 @@ export default function About() {
               <img src="/img/about-me3.png" alt="Gallery interior" />
             </div>
             <div className="about-card about-card-4">
-              <img src="/img/about-me4.png" alt="Sunset moment" />
+              <img src="/img/about-me2.png" alt="Sunset moment" />
               <span className="about-tag about-tag-3">
                 girls just wanna have fun!
               </span>
