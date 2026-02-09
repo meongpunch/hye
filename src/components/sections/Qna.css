@@ -114,7 +114,7 @@
 }
 
 .qna-item.is-open .qna-answer {
-  max-height: 300px;
+  max-height: 500px;
   opacity: 1;
   padding: 6px 0 12px;
 }

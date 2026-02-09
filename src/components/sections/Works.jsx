@@ -335,6 +335,15 @@ export default function Works() {
                 <span>App</span>
                 <span>2026.01</span>
               </div>
+              <a
+                className="works-meta-link"
+                href="https://dugout-ruby.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="DUGOUT 작업물 열기"
+              >
+                <span className="works-meta-link-icon" aria-hidden="true" />
+              </a>
             </div>
           </div>
 
@@ -409,6 +418,15 @@ export default function Works() {
                 <span>Web</span>
                 <span>2024</span>
               </div>
+              <a
+                className="works-meta-link"
+                href="https://meongpunch.github.io/monamifinal/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="MONAMI 작업물 열기"
+              >
+                <span className="works-meta-link-icon" aria-hidden="true" />
+              </a>
             </div>
           </div>
 
@@ -487,6 +505,15 @@ export default function Works() {
                 <span>App</span>
                 <span>2024</span>
               </div>
+              <a
+                className="works-meta-link"
+                href="/img/work-tippi.png"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="TiPPi 작업물 열기"
+              >
+                <span className="works-meta-link-icon" aria-hidden="true" />
+              </a>
             </div>
           </div>
 
