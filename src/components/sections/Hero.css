@@ -266,20 +266,13 @@
 
   .hero-mobile {
     display: grid;
-    place-items: center;
-    gap: 0;
-  }
-
-  .hero-mobile-media,
-  .hero-mobile-text {
-    grid-area: 1 / 1;
+    justify-items: center;
+    align-content: center;
+    gap: 22px;
   }
 
   .hero-mobile-text {
-    z-index: 2;
-    align-self: end;
-    padding-bottom: clamp(14px, 6vw, 28px);
-    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   }
 
   .hero-sticker {
@@ -291,28 +284,28 @@
   }
 
   .hero-sticker-rec {
-    top: 54%;
-    left: 30%;
+    top: 62%;
+    left: 28%;
   }
 
   .hero-sticker-onair {
-    top: 72%;
-    right: 30%;
+    top: 78%;
+    right: 26%;
     width: 62px;
   }
 
   .hero-sticker-isee {
-    top: 62%;
-    left: 62%;
+    top: 66%;
+    left: 64%;
   }
 
   .hero-sticker-love {
-    top: 66%;
-    left: 44%;
+    top: 72%;
+    left: 48%;
   }
 
   .hero-sticker-scroll {
-    top: 88%;
+    top: 92%;
     right: 46%;
   }
 }
@@ -355,28 +348,28 @@
   }
 
   .hero-sticker-rec {
-    top: 52%;
-    left: 26%;
+    top: 63%;
+    left: 22%;
   }
 
   .hero-sticker-onair {
-    top: 72%;
-    right: 26%;
+    top: 80%;
+    right: 22%;
     width: 48px;
   }
 
   .hero-sticker-isee {
-    top: 60%;
-    left: 64%;
+    top: 66%;
+    left: 66%;
   }
 
   .hero-sticker-love {
-    top: 66%;
-    left: 44%;
+    top: 72%;
+    left: 48%;
   }
 
   .hero-sticker-scroll {
-    top: 90%;
+    top: 94%;
     right: 46%;
   }
 }
