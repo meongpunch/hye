@@ -4,6 +4,7 @@ import "./Hero.css";
 export default function Hero() {
   const heroRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
+  const [isSafari, setIsSafari] = useState(false);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -20,8 +21,24 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (typeof navigator === "undefined") return;
+    const ua = navigator.userAgent;
+    const vendor = navigator.vendor || "";
+    const isSafariBrowser =
+      /Safari/i.test(ua) &&
+      /Apple/i.test(vendor) &&
+      !/Chrome|CriOS|FxiOS|Edg|OPR|SamsungBrowser/i.test(ua);
+    setIsSafari(isSafariBrowser);
+  }, []);
+
   return (
-    <div className={`hero${isInView ? " is-inview" : ""}`} ref={heroRef}>
+    <div
+      className={`hero${isInView ? " is-inview" : ""}${
+        isSafari ? " is-safari" : ""
+      }`}
+      ref={heroRef}
+    >
       <div className="hero-stage">
         <img
           className="hero-sticker hero-sticker-rec"

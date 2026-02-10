@@ -164,6 +164,45 @@
   height: 100%;
 }
 
+.hero.is-safari .hero-mask {
+  display: none;
+}
+
+.hero-safari-mask {
+  position: absolute;
+  inset: 0;
+  display: none;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero.is-safari .hero-safari-mask {
+  display: block;
+}
+
+.hero-video--safari {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  -webkit-mask-image: url("/img/hero-text-mask.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-position: center;
+  mask-image: url("/img/hero-text-mask.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  mask-position: center;
+}
+
+.hero-safari-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .hero-video {
   width: 100%;
   height: 100%;
@@ -261,6 +300,10 @@
 
 @media (max-width: 768px) {
   .hero-mask {
+    display: none;
+  }
+
+  .hero-safari-mask {
     display: none;
   }
 

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="black" />
+  <text x="80" y="250" fill="white" font-family="Arniya, 'Times New Roman', serif" font-size="250" letter-spacing="-2" font-weight="400">
+    Design
+  </text>
+  <text x="620" y="475" fill="white" font-family="Epilogue, system-ui, sans-serif" font-size="250" letter-spacing="-2" font-weight="700">
+    shaped
+  </text>
+  <text x="80" y="690" fill="white" font-family="Epilogue, system-ui, sans-serif" font-size="250" letter-spacing="-2" font-weight="500">
+    by my
+  </text>
+  <text x="840" y="700" fill="white" font-family="'Times New Roman', serif" font-size="250" letter-spacing="-2" font-weight="700" font-style="italic">
+    view
+  </text>
+</svg>
