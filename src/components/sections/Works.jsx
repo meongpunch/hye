@@ -34,7 +34,7 @@ export default function Works() {
       href: "https://meongpunch.github.io/musign/",
     },
     {
-      title: "pho",
+      title: "phomein",
       img: "/img/clonecoding-pho.png",
       href: "https://meongpunch.github.io/phomein/",
     },
@@ -336,15 +336,29 @@ export default function Works() {
                 <span>App</span>
                 <span>2026.01</span>
               </div>
-              <a
-                className="works-meta-link"
-                href="https://dugout-ruby.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="DUGOUT 작업물 열기"
-              >
-                <span className="works-meta-link-icon" aria-hidden="true" />
-              </a>
+              <div className="works-meta-actions">
+                <a
+                  className="works-meta-link"
+                  href="https://dugout-ruby.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="DUGOUT 작업물 열기"
+                >
+                  <span className="works-meta-link-icon" aria-hidden="true" />
+                </a>
+                <a
+                  className="works-meta-link works-meta-link--doc"
+                  href="https://www.figma.com/proto/Wj3Nyt2XUynsKUzcLixxwn/Untitled?page-id=11%3A529&node-id=11-904&viewport=422%2C269%2C0.39&t=xJFcDe75PxairUfX-1&scaling=min-zoom&content-scaling=fixed"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="DUGOUT 문서 보기"
+                >
+                  <span
+                    className="works-meta-link-icon works-meta-link-icon--doc"
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -419,15 +433,29 @@ export default function Works() {
                 <span>Web</span>
                 <span>2024</span>
               </div>
-              <a
-                className="works-meta-link"
-                href="https://meongpunch.github.io/monamifinal/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="MONAMI 작업물 열기"
-              >
-                <span className="works-meta-link-icon" aria-hidden="true" />
-              </a>
+              <div className="works-meta-actions">
+                <a
+                  className="works-meta-link"
+                  href="https://meongpunch.github.io/monamifinal/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="MONAMI 작업물 열기"
+                >
+                  <span className="works-meta-link-icon" aria-hidden="true" />
+                </a>
+                <a
+                  className="works-meta-link works-meta-link--doc"
+                  href="https://www.figma.com/proto/Wj3Nyt2XUynsKUzcLixxwn/Untitled?page-id=0%3A1&node-id=1-99&viewport=1674%2C-9073%2C0.47&t=wUlXwSZpUjyE3CGt-1&scaling=min-zoom&content-scaling=fixed"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="MONAMI 문서 보기"
+                >
+                  <span
+                    className="works-meta-link-icon works-meta-link-icon--doc"
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -506,15 +534,29 @@ export default function Works() {
                 <span>App</span>
                 <span>2024</span>
               </div>
-              <a
-                className="works-meta-link"
-                href="/img/work-tippi.png"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="TiPPi 작업물 열기"
-              >
-                <span className="works-meta-link-icon" aria-hidden="true" />
-              </a>
+              <div className="works-meta-actions">
+                <a
+                  className="works-meta-link"
+                  href="/img/work-tippi.png"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TiPPi 작업물 열기"
+                >
+                  <span className="works-meta-link-icon" aria-hidden="true" />
+                </a>
+                <a
+                  className="works-meta-link works-meta-link--doc"
+                  href="/img/work-tippi.png"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TiPPi 문서 보기"
+                >
+                  <span
+                    className="works-meta-link-icon works-meta-link-icon--doc"
+                    aria-hidden="true"
+                  />
+                </a>
+              </div>
             </div>
           </div>
 

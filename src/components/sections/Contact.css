@@ -33,6 +33,7 @@
   margin: 0;
   font-size: 32px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .contact-card p {
@@ -40,6 +41,8 @@
   font-size: 16px;
   font-weight: 200;
   color: rgba(255, 255, 255, 0.8);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-card:nth-child(3) p {
@@ -47,6 +50,7 @@
   font-weight: 700;
   color: #ffffff;
   margin-top: 8px;
+  line-height: 1.2;
 }
 
 .contact-card small {
@@ -55,6 +59,7 @@
   font-size: 16px;
   font-weight: 200;
   color: rgba(255, 255, 255, 0.8);
+  overflow-wrap: anywhere;
 }
 
 .contact-chip {
@@ -213,11 +218,32 @@
 
 @media (max-width: 900px) {
   .contact-frame {
-    padding: 40px 32px 60px;
+    padding: 32px 24px 48px;
   }
 
   .contact-top {
     grid-template-columns: 1fr;
+  }
+
+  .contact-chip {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .contact-card h3 {
+    font-size: 26px;
+  }
+
+  .contact-card p {
+    font-size: 14px;
+  }
+
+  .contact-card:nth-child(3) p {
+    font-size: 24px;
+  }
+
+  .contact-card small {
+    font-size: 14px;
   }
 
   .contact-title {
@@ -227,10 +253,22 @@
 
 @media (max-width: 600px) {
   .contact {
-    padding: 110px 6vw 160px;
+    padding: 110px 6vw 20px;
   }
 
   .contact-frame {
-    padding: 36px 24px 54px;
+    padding: 28px 18px 42px;
+  }
+
+  .contact-card h3 {
+    font-size: 22px;
+  }
+
+  .contact-card:nth-child(3) p {
+    font-size: 20px;
+  }
+
+  .contact-card small {
+    font-size: 13px;
   }
 }

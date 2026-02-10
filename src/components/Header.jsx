@@ -12,6 +12,7 @@ const navItems = [
 
 export default function Header() {
   const [isHidden, setIsHidden] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -41,12 +42,42 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleToggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+    setIsHidden(false);
+  };
+
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={`site-header${isHidden ? " is-hidden" : ""}`}>
       <div className="site-header__brand">HYEWONKIM</div>
-      <nav className="site-header__nav" aria-label="Primary">
+      <button
+        className="site-header__toggle"
+        type="button"
+        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={isMenuOpen}
+        aria-controls="site-header-nav"
+        onClick={handleToggleMenu}
+      >
+        <span className="site-header__toggle-line" aria-hidden="true" />
+        <span className="site-header__toggle-line" aria-hidden="true" />
+        <span className="site-header__toggle-line" aria-hidden="true" />
+      </button>
+      <nav
+        id="site-header-nav"
+        className={`site-header__nav${isMenuOpen ? " is-open" : ""}`}
+        aria-label="Primary"
+      >
         {navItems.map((item) => (
-          <a key={item.id} href={`#${item.id}`} className="site-header__link">
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className="site-header__link"
+            onClick={handleNavClick}
+          >
             <span className="nav-text" aria-hidden="true">
               {Array.from(item.label).map((char, index) => (
                 <span

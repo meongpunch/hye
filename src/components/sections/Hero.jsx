@@ -48,6 +48,30 @@ export default function Hero() {
           src="/img/sticker-scrolldown.svg"
           alt="Scroll down sticker"
         />
+        <div className="hero-mobile" aria-hidden="true">
+          <div className="hero-mobile-media">
+            <video
+              className="hero-video hero-video--mobile"
+              src="/img/hero-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+          <div className="hero-mobile-text">
+            <span className="hero-mobile-line hero-mobile-line--design">
+              Design
+            </span>
+            <span className="hero-mobile-line hero-mobile-line--shaped">
+              shaped
+            </span>
+            <span className="hero-mobile-line hero-mobile-line--by">by my</span>
+            <span className="hero-mobile-line hero-mobile-line--view">
+              view
+            </span>
+          </div>
+        </div>
         <svg
           className="hero-mask"
           viewBox="0 0 1600 900"

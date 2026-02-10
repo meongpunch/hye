@@ -29,6 +29,28 @@
   white-space: nowrap;
 }
 
+.site-header__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: inherit;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.site-header__toggle-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+
 .site-header__nav {
   display: flex;
   justify-content: center;
@@ -54,8 +76,11 @@
 
 .nav-text {
   display: inline-flex;
-  gap: 2px;
   line-height: 1;
+}
+
+.nav-text span {
+  margin-left: -0.5px; /* 왼쪽으로 2px 겹치게 함 */
 }
 
 .nav-char {
@@ -135,5 +160,41 @@
   .site-header__nav {
     flex-wrap: wrap;
     gap: 14px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    justify-items: stretch;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .site-header__meta {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: inline-flex;
+    justify-self: end;
+  }
+
+  .site-header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px 6vw 28px;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .site-header__nav.is-open {
+    display: flex;
   }
 }

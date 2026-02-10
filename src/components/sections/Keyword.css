@@ -2,6 +2,7 @@
   background: #efe9e3;
   color: #111111;
   padding: 360px 6vw 280px;
+  overflow-x: clip;
 }
 
 .keyword-inner {
@@ -46,14 +47,19 @@
 
 .keyword-card {
   position: absolute;
-  width: 350px;
-  min-height: 460px;
+  width: clamp(280px, calc(5.44vw + 246px), 350px);
+  min-height: clamp(400px, calc(6.52vw + 335px), 460px);
   border-radius: 18px;
-  padding: 110px 36px 26px;
+  padding: clamp(95px, calc(1.63vw + 79px), 110px)
+    clamp(28px, calc(0.87vw + 19px), 36px)
+    clamp(22px, calc(0.44vw + 18px), 26px);
   background: var(--bg, #111111);
   color: var(--fg, #ffffff);
-  transform: translate(var(--x), var(--y)) rotate(var(--rot))
-    rotateX(calc(var(--tilt-x) * var(--tilt, 5) * 1deg))
+  transform: translate(
+      clamp(-28vw, var(--x), 28vw),
+      clamp(-12vh, var(--y), 18vh)
+    )
+    rotate(var(--rot)) rotateX(calc(var(--tilt-x) * var(--tilt, 5) * 1deg))
     rotateY(calc(var(--tilt-y) * var(--tilt, 5) * 1deg));
   transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
   transform-style: preserve-3d;
@@ -103,13 +109,17 @@
 }
 
 .keyword-card:hover {
-  transform: translate(var(--x), var(--y)) rotate(0deg) scale(1.1);
+  transform: translate(
+      clamp(-28vw, var(--x), 28vw),
+      clamp(-12vh, var(--y), 18vh)
+    )
+    rotate(0deg) scale(1.1);
   z-index: 3;
 }
 
 .keyword-card-title {
-  margin: 0 0 140px;
-  font-size: 36px;
+  margin: 0 0 clamp(110px, calc(3.3vw + 77px), 140px);
+  font-size: clamp(30px, calc(0.65vw + 23.5px), 36px);
   font-weight: 700;
   white-space: pre-line;
   font-family: "Epilogue", system-ui, sans-serif;
@@ -118,25 +128,68 @@
 .keyword-card-list {
   margin: 0;
   padding-left: 16px;
-  font-size: 18px;
+  font-size: clamp(15px, calc(0.33vw + 11.7px), 18px);
   font-weight: 300;
   line-height: 1.6;
   font-family: "Pretendard", sans-serif;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
+  .keyword {
+    padding-bottom: 0px;
+  }
   .keyword-inner {
-    gap: 80px;
+    gap: 160px;
   }
 
   .keyword-cards {
-    min-height: 520px;
+    width: min(900px, 92vw);
+    min-height: 0;
+    place-items: start center;
+    gap: 0;
+    isolation: isolate;
   }
 
   .keyword-card {
-    position: relative;
+    position: sticky;
+    top: 180px;
+    margin-bottom: 70vh;
     transform: rotate(var(--rot));
-    margin-bottom: 18px;
+    z-index: 1;
+  }
+
+  .keyword-card:last-child {
+    margin-bottom: 70vh;
+  }
+
+  .keyword-card:nth-child(1) {
+    z-index: 1;
+  }
+
+  .keyword-card:nth-child(2) {
+    z-index: 2;
+  }
+
+  .keyword-card:nth-child(3) {
+    z-index: 3;
+  }
+
+  .keyword-card:nth-child(4) {
+    z-index: 4;
+  }
+
+  .keyword-card:nth-child(5) {
+    z-index: 5;
+  }
+}
+
+@media (max-width: 768px) {
+  .keyword-cards {
+    width: min(520px, 92vw);
+  }
+
+  .keyword-card:hover {
+    transform: rotate(var(--rot));
   }
 }
 
@@ -147,5 +200,32 @@
 
   .keyword-card {
     width: min(260px, 78vw);
+  }
+}
+
+@media (max-width: 393px) {
+  .keyword-card {
+    width: min(240px, 86vw);
+    min-height: 400px;
+    padding: 88px 22px 22px;
+  }
+
+  .keyword-card-title {
+    font-size: 28px;
+    margin: 0 0 84px;
+  }
+
+  .keyword-card-list {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .keyword-sticker,
+  .keyword-sticker-ilove,
+  .keyword-sticker-isee,
+  .keyword-sticker-lovethis,
+  .keyword-sticker-watchit,
+  .keyword-sticker-new {
+    width: 120px;
   }
 }

@@ -19,10 +19,70 @@
 
 .hero-stage {
   position: relative;
-  width: min(92vw, 1600px);
+  width: 100%;
+  max-width: 1600px;
   aspect-ratio: 16 / 9;
   height: auto;
   max-height: 86vh;
+}
+
+.hero-mobile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-items: center;
+  gap: 28px;
+}
+
+.hero-mobile-media {
+  width: min(560px, 86vw);
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+}
+
+.hero-video--mobile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-mobile-text {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 6px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.hero-mobile-line {
+  font-size: clamp(36px, 11vw, 72px);
+  line-height: 0.92;
+  letter-spacing: -1.2px;
+}
+
+.hero-mobile-line--design {
+  font-family: "Arniya", "Times New Roman", serif;
+  font-weight: 400;
+  color: #d9f205;
+}
+
+.hero-mobile-line--shaped,
+.hero-mobile-line--by {
+  font-family: "Epilogue", system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.hero-mobile-line--view {
+  font-family: "Times New Roman", serif;
+  font-weight: 700;
+  font-style: italic;
+  color: #d9f205;
 }
 
 .hero-sticker {
@@ -67,7 +127,6 @@
   top: 59%;
   right: 10%;
   --stick-rot: 0deg;
-  width: 140px;
 }
 
 .hero.is-inview .hero-sticker {
@@ -200,8 +259,106 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-mask {
+    display: none;
+  }
+
+  .hero-mobile {
+    display: grid;
+  }
+
+  .hero-sticker {
+    width: 70px;
+  }
+
+  .hero-sticker-rec {
+    top: 54%;
+    left: 30%;
+  }
+
+  .hero-sticker-onair {
+    top: 72%;
+    right: 30%;
+    width: 62px;
+  }
+
+  .hero-sticker-isee {
+    top: 62%;
+    left: 62%;
+  }
+
+  .hero-sticker-love {
+    top: 66%;
+    left: 44%;
+  }
+
+  .hero-sticker-scroll {
+    top: 88%;
+    right: 46%;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-sticker {
     width: 90px;
+  }
+}
+
+@media (max-width: 393px) {
+  .hero {
+    padding: 28px 16px;
+  }
+
+  .hero-stage {
+    max-height: 82vh;
+  }
+
+  .hero-mobile {
+    gap: 18px;
+  }
+
+  .hero-mobile-media {
+    width: min(320px, 90vw);
+    border-radius: 14px;
+  }
+
+  .hero-mobile-text {
+    gap: 4px;
+  }
+
+  .hero-mobile-line {
+    font-size: clamp(28px, 12vw, 56px);
+    letter-spacing: -1px;
+  }
+
+  .hero-sticker {
+    width: 54px;
+  }
+
+  .hero-sticker-rec {
+    top: 52%;
+    left: 26%;
+  }
+
+  .hero-sticker-onair {
+    top: 72%;
+    right: 26%;
+    width: 48px;
+  }
+
+  .hero-sticker-isee {
+    top: 60%;
+    left: 64%;
+  }
+
+  .hero-sticker-love {
+    top: 66%;
+    left: 44%;
+  }
+
+  .hero-sticker-scroll {
+    top: 90%;
+    right: 46%;
   }
 }

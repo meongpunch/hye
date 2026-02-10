@@ -15,10 +15,11 @@
 }
 
 .about-panel-inner {
-  width: 100vw;
+  width: 100%;
   margin: 0;
   display: grid;
   justify-items: center;
+  grid-template-columns: minmax(0, 1fr);
   position: relative;
 }
 
@@ -153,8 +154,8 @@
 }
 
 .about-underline {
-  width: min(890px, 78vw);
-  height: 26px;
+  width: clamp(320px, 70vw, 890px);
+  height: clamp(12px, 2.2vw, 26px);
   margin: 10px auto 0;
   display: block;
   transform: translateX(40px);
@@ -305,6 +306,12 @@
 
   .about-sticker-rec {
     right: 0;
+  }
+}
+
+@media (max-width: 1400px) {
+  .about-quote {
+    font-size: 150px;
   }
 }
 

@@ -17,6 +17,7 @@
 .works-projects {
   display: grid;
   gap: 0;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .works-header {
@@ -56,6 +57,7 @@
 .works-project {
   display: grid;
   gap: 140px;
+  min-width: 0;
 }
 
 .works-row {
@@ -63,6 +65,8 @@
   grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
   align-items: center;
   gap: 200px;
+  min-width: 0;
+  width: 100%;
 }
 
 .works-row.is-reverse {
@@ -92,6 +96,9 @@
   min-height: 420px;
   justify-self: stretch;
   justify-items: end;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .works-mockup {
@@ -102,7 +109,7 @@
 }
 
 .works-project--monami .works-mockup {
-  width: 750px;
+  width: 100%;
 }
 
 .works-base {
@@ -224,6 +231,9 @@
   display: grid;
   gap: 12px;
   justify-self: center;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 .works-row--detail .works-info {
@@ -248,11 +258,17 @@
 
 .works-desc {
   margin: 72px 0 0;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   font-weight: 200;
   color: rgba(255, 255, 255, 0.65);
   font-family: "Pretendard", sans-serif;
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .works-desc-strong {
@@ -272,7 +288,6 @@
 }
 
 .works-meta-link {
-  margin-top: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -289,10 +304,23 @@
     background 0.2s ease;
 }
 
+.works-meta-actions {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .works-meta-link-icon {
   width: 20px;
   height: 20px;
   background: url("/img/arrow.svg") center / contain no-repeat;
+}
+
+.works-meta-link-icon--doc {
+  width: 16px;
+  height: 16px;
+  background: url("/img/document.png") center / contain no-repeat;
 }
 
 .works-meta-link:hover {
@@ -622,17 +650,93 @@
   letter-spacing: 0.6px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .works {
-    padding: 120px 6vw 140px;
-  }
-
-  .works-projects {
-    gap: 200px;
+    padding: 120px 6vw 200px;
   }
 
   .works-header {
-    font-size: clamp(48px, 9vw, 96px);
+    margin-bottom: 120px;
+    font-size: clamp(56px, 8vw, 96px);
+  }
+
+  .works-project + .works-project {
+    margin-top: 340px;
+  }
+
+  .works-project {
+    gap: 110px;
+  }
+
+  .works-row {
+    gap: 120px;
+    grid-template-columns: minmax(260px, 1fr) minmax(260px, 1fr);
+  }
+
+  .works-row.is-reverse {
+    grid-template-columns: minmax(240px, 1fr) minmax(240px, 1fr);
+  }
+
+  .works-media {
+    min-height: 360px;
+  }
+
+  .works-mockup {
+    width: min(520px, 70vw);
+  }
+
+  .works-project--monami .works-mockup {
+    width: min(620px, 80vw);
+  }
+
+  .works-base {
+    width: min(480px, 70vw);
+  }
+
+  .works-title,
+  .works-subtitle {
+    font-size: 48px;
+  }
+
+  .works-desc {
+    margin-top: 56px;
+  }
+
+  .works-section-title {
+    margin: 360px 0 0;
+  }
+
+  .works-clone {
+    margin-top: 260px;
+    gap: 90px;
+  }
+
+  .works-clone-stack {
+    width: min(380px, 68vw);
+    height: min(480px, 92vw);
+  }
+
+  .works-clone-card {
+    max-width: 320px;
+  }
+
+  .works-skill {
+    margin-top: 260px;
+    gap: 140px;
+  }
+}
+
+@media (max-width: 900px) {
+  .works {
+    padding: 115px 6vw 150px;
+  }
+
+  .works-projects {
+    gap: 190px;
+  }
+
+  .works-header {
+    font-size: clamp(48px, 9vw, 84px);
   }
 
   .works-row,
@@ -657,11 +761,119 @@
   }
 
   .works-clone {
-    margin-top: 160px;
+    margin-top: 170px;
   }
 
   .works-skill {
-    margin-top: 160px;
+    margin-top: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  .works {
+    padding: 110px 6vw 160px;
+  }
+
+  .works-projects {
+    gap: 160px;
+  }
+
+  .works-header {
+    font-size: clamp(44px, 10vw, 72px);
+  }
+
+  .works-row,
+  .works-row.is-reverse {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+
+  .works-row.is-reverse .works-media {
+    order: 0;
+  }
+
+  .works-media {
+    min-height: 280px;
+    justify-items: center;
+  }
+
+  .works-info {
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .works-mockup {
+    width: min(420px, 86vw);
+  }
+
+  .works-project--monami .works-mockup {
+    width: min(520px, 90vw);
+  }
+
+  .works-base {
+    width: min(420px, 86vw);
+  }
+
+  .works-title,
+  .works-subtitle {
+    font-size: 40px;
+  }
+
+  .works-desc {
+    font-size: 14px;
+    margin-top: 40px;
+  }
+
+  .works-meta {
+    font-size: 14px;
+  }
+
+  .works-role-chip {
+    font-size: 12px;
+  }
+
+  .works-skill-list {
+    font-size: 16px;
+  }
+
+  .works-skill-list li {
+    grid-template-columns: 70px 1fr 50px;
+  }
+
+  .works-clone {
+    margin-top: 180px;
+    gap: 70px;
+  }
+
+  .works-clone-stack {
+    width: min(330px, 88vw);
+    height: min(430px, 115vw);
+  }
+
+  .works-clone-card {
+    max-width: 290px;
+  }
+
+  .works-clone-title {
+    font-size: 32px;
+  }
+
+  .works-skill {
+    margin-top: 180px;
+    gap: 100px;
+  }
+
+  .works-skill-title {
+    font-size: clamp(36px, 9vw, 72px);
+  }
+
+  .works-skill-grid {
+    gap: 16px;
+  }
+
+  .works-skill-grid img {
+    width: 80px;
+    height: 80px;
   }
 }
 
@@ -671,11 +883,11 @@
   }
 
   .works-projects {
-    gap: 90px;
+    gap: 110px;
   }
 
   .works-header {
-    font-size: clamp(36px, 10vw, 64px);
+    font-size: clamp(36px, 10vw, 60px);
   }
 
   .works-desc {
@@ -683,8 +895,12 @@
   }
 
   .works-clone-stack {
-    width: min(320px, 84vw);
-    height: min(420px, 120vw);
+    width: min(300px, 84vw);
+    height: min(400px, 120vw);
+  }
+
+  .works-clone-card {
+    max-width: 260px;
   }
 
   .works-skill-title {
@@ -698,5 +914,119 @@
   .works-skill-grid img {
     width: 72px;
     height: 72px;
+  }
+}
+
+@media (max-width: 393px) {
+  .works {
+    padding: 90px 5vw 120px;
+  }
+
+  .works-header {
+    margin-bottom: 90px;
+    font-size: clamp(32px, 12vw, 52px);
+  }
+
+  .works-project + .works-project {
+    margin-top: 220px;
+  }
+
+  .works-project {
+    gap: 80px;
+  }
+
+  .works-row {
+    gap: 50px;
+  }
+
+  .works-media {
+    min-height: 220px;
+  }
+
+  .works-mockup {
+    width: min(320px, 90vw);
+  }
+
+  .works-base {
+    width: min(320px, 90vw);
+    border-radius: 18px;
+  }
+
+  .works-title,
+  .works-subtitle {
+    font-size: 32px;
+  }
+
+  .works-desc {
+    font-size: 13px;
+    margin-top: 28px;
+  }
+
+  .works-meta {
+    font-size: 12px;
+    letter-spacing: 0.6px;
+  }
+
+  .works-meta-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .works-meta-link-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .works-role-chip {
+    width: 120px;
+  }
+
+  .works-project--tippi .works-role-chip {
+    width: 160px;
+  }
+
+  .works-skill-list {
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .works-skill-list li {
+    grid-template-columns: 60px 1fr 46px;
+  }
+
+  .works-skill-value {
+    font-size: 14px;
+  }
+
+  .works-clone {
+    margin-top: 140px;
+    gap: 60px;
+  }
+
+  .works-clone-stack {
+    width: min(260px, 90vw);
+    height: min(340px, 120vw);
+  }
+
+  .works-clone-card {
+    max-width: 230px;
+  }
+
+  .works-clone-title {
+    font-size: 26px;
+  }
+
+  .works-skill {
+    margin-top: 140px;
+    gap: 80px;
+  }
+
+  .works-skill-title {
+    font-size: clamp(30px, 10vw, 56px);
+  }
+
+  .works-skill-grid img {
+    width: 64px;
+    height: 64px;
   }
 }
