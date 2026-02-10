@@ -24,11 +24,9 @@ export default function Hero() {
   useEffect(() => {
     if (typeof navigator === "undefined") return;
     const ua = navigator.userAgent;
-    const vendor = navigator.vendor || "";
     const isSafariBrowser =
-      /Safari/i.test(ua) &&
-      /Apple/i.test(vendor) &&
-      !/Chrome|CriOS|FxiOS|Edg|OPR|SamsungBrowser/i.test(ua);
+      /safari/i.test(ua) &&
+      !/chrome|crios|chromium|android|fxios|edgios/i.test(ua);
     setIsSafari(isSafariBrowser);
   }, []);
 
@@ -99,9 +97,6 @@ export default function Hero() {
           <defs>
             <mask id="hero-text-mask" maskUnits="userSpaceOnUse">
               <rect width="1600" height="900" fill="black" />
-              <text className="hero-text hero-text-design" x="80" y="250">
-                Design
-              </text>
               <text className="hero-text hero-text-shaped" x="620" y="475">
                 shaped
               </text>
@@ -140,6 +135,40 @@ export default function Hero() {
             view
           </text>
         </svg>
+
+        <div className="hero-safari-mask" aria-hidden="true">
+          <div className="hero-video-mask">
+            <video
+              className="hero-video"
+              src="/img/hero-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+          <svg
+            className="hero-safari-overlay"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden="true"
+          >
+            <text
+              className="hero-text hero-text-design hero-text-solid"
+              x="80"
+              y="250"
+            >
+              Design
+            </text>
+            <text
+              className="hero-text hero-text-view hero-text-solid"
+              x="840"
+              y="700"
+            >
+              view
+            </text>
+          </svg>
+        </div>
       </div>
       <span className="hero-sr">Design shaped by my view</span>
     </div>
