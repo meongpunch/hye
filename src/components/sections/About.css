@@ -367,7 +367,7 @@
   }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 450px) {
   .about-tag {
     display: none;
   }

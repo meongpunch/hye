@@ -266,6 +266,24 @@
 
   .hero-mobile {
     display: grid;
+    place-items: center;
+    gap: 0;
+  }
+
+  .hero-mobile-media,
+  .hero-mobile-text {
+    grid-area: 1 / 1;
+  }
+
+  .hero-mobile-text {
+    z-index: 2;
+    align-self: end;
+    padding-bottom: clamp(14px, 6vw, 28px);
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-sticker {
+    z-index: 3;
   }
 
   .hero-sticker {
