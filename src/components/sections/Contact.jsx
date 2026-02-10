@@ -42,18 +42,18 @@ export default function Contact() {
         <div className="contact-top">
           <div className="contact-card">
             <span className="contact-chip">looking for designer?</span>
-            <h3>김혜원입니다.</h3>
+            <h3>경험을 디자인하는 김혜원입니다.</h3>
           </div>
           <div className="contact-card">
-            <span className="contact-chip">notion</span>
+            <span className="contact-chip">Figma</span>
             <h3>You can see more..</h3>
-            <p>더 많은 내용은 노션에서 확인할 수 있습니다.</p>
+            <p>포트폴리오 디자인은 피그마에서도 확인하실 수 있습니다.</p>
           </div>
           <div className="contact-card">
             <span className="contact-chip">please contact me!</span>
             <h3>010-2824-1223</h3>
             <p>meongpunch@gmail.com</p>
-            <small>빠른회신드리겟습니당~</small>
+            <small>빠른 회신 드리겠습니다.</small>
           </div>
         </div>
 
@@ -101,11 +101,7 @@ export default function Contact() {
           alt=""
           aria-hidden="true"
         />
-        <svg
-          className="contact-line"
-          viewBox="0 0 145 261"
-          aria-hidden="true"
-        >
+        <svg className="contact-line" viewBox="0 0 145 261" aria-hidden="true">
           <path
             className="contact-line-path"
             d="M1.5 259.5C26.9493 258.503 82.8072 243.474 102.645 191.331C106.995 176.381 109.301 138.829 83.7207 108.212C77.8478 102.033 63.3613 93.7412 52.3985 110.006C48.7008 116.983 47.0477 133.806 70.0173 145.287C81.1105 149.473 100.687 155.079 116.348 145.287C133.203 134.748 158.95 93.4878 131.357 49.2376C120.046 31.099 92.3425 4.05212 90.8987 2.37091C86.9835 -2.18818 86.3309 12.3372 83.7207 18.5162C83.0682 19.712 83.7207 21.0272 91.5513 16.7217L105.255 9.54603C111.78 6.35722 118.567 0.45785 93.5089 2.37091"

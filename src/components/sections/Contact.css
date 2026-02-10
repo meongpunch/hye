@@ -216,6 +216,20 @@
   }
 }
 
+@media (max-width: 1600px) {
+  .contact-card h3,
+  .contact-card:nth-child(3) p {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1500px) {
+  .contact-card h3,
+  .contact-card:nth-child(3) p {
+    font-size: 24px;
+  }
+}
+
 @media (max-width: 900px) {
   .contact {
     padding: 110px 6vw 20px;
