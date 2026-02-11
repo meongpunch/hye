@@ -430,7 +430,7 @@ export default function About() {
             <div className="about-card about-card-4">
               <img src="/img/about-me2.png" alt="Sunset moment" />
               <span className="about-tag about-tag-3">
-                girls just wanna have fun!
+                This is how I remember and think.
               </span>
             </div>
           </div>

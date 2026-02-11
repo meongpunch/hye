@@ -47,7 +47,18 @@ export default function Contact() {
           <div className="contact-card">
             <span className="contact-chip">Figma</span>
             <h3>You can see more..</h3>
-            <p>포트폴리오 디자인은 피그마에서도 확인하실 수 있습니다.</p>
+            <p>
+              더 많은 내용은{" "}
+              <a
+                className="contact-link"
+                href="https://www.notion.so/301d03c5473680e385c4e0d37abfa541"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                노션
+              </a>
+              에서도 확인하실 수 있습니다.
+            </p>
           </div>
           <div className="contact-card">
             <span className="contact-chip">please contact me!</span>

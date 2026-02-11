@@ -45,6 +45,26 @@
   word-break: break-word;
 }
 
+.contact-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
+}
+
+.contact-link:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .contact-card:nth-child(3) p {
   font-size: 32px;
   font-weight: 700;

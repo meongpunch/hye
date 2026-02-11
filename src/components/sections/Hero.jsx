@@ -5,6 +5,7 @@ export default function Hero() {
   const heroRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
   const [isSafari, setIsSafari] = useState(false);
+  const [maskKey, setMaskKey] = useState(0);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -28,6 +29,29 @@ export default function Hero() {
       /safari/i.test(ua) &&
       !/chrome|crios|chromium|android|fxios|edgios/i.test(ua);
     setIsSafari(isSafariBrowser);
+  }, []);
+
+  useEffect(() => {
+    let isActive = true;
+
+    const refreshMask = () => {
+      if (!isActive) return;
+      setMaskKey((prev) => prev + 1);
+    };
+
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(refreshMask).catch(() => {});
+    } else {
+      const frame = requestAnimationFrame(refreshMask);
+      return () => {
+        isActive = false;
+        cancelAnimationFrame(frame);
+      };
+    }
+
+    return () => {
+      isActive = false;
+    };
   }, []);
 
   return (
@@ -88,6 +112,7 @@ export default function Hero() {
           </div>
         </div>
         <svg
+          key={maskKey}
           className="hero-mask"
           viewBox="0 0 1600 900"
           preserveAspectRatio="xMidYMid meet"
