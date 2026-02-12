@@ -537,7 +537,7 @@ export default function Works() {
               <div className="works-meta-actions">
                 <a
                   className="works-meta-link"
-                  href="/img/work-tippi.png"
+                  href="https://www.figma.com/proto/Wj3Nyt2XUynsKUzcLixxwn/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A0%95%EB%A6%AC?page-id=43%3A1325&node-id=43-4203&viewport=-151%2C357%2C0.07&t=L7XfFTiEXVsZcVJT-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=43%3A4203"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="TiPPi 작업물 열기"
@@ -546,7 +546,7 @@ export default function Works() {
                 </a>
                 <a
                   className="works-meta-link works-meta-link--doc"
-                  href="/img/work-tippi.png"
+                  href="https://www.figma.com/proto/Wj3Nyt2XUynsKUzcLixxwn/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A0%95%EB%A6%AC?page-id=210%3A2542&node-id=210-2543&viewport=619%2C595%2C0.11&t=IKqMWY4OFhCHTiyG-1&scaling=contain&content-scaling=responsive"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="TiPPi 문서 보기"
