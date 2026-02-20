@@ -319,17 +319,17 @@ export default function Works() {
               <h3 className="works-title">Mobile Fandom App</h3>
               <p className="works-subtitle">DUGOUT</p>
               <p className="works-desc">
-                DUGOUT은 야구 팬을 ‘관람자’가 아닌{" "}
+                DUGOUT은 7인 프로젝트로 야구 팬을 ‘관람자’가 아닌{" "}
                 <strong className="works-desc-strong">‘10번째 선수’</strong>로
-                정의한 팬 경험 중심의 모바일 서비스입니다. <br /> 경기 정보
-                위주의 단편적인 앱 구조에서 벗어나, 응원·소통·기록으로 이어지는
-                팬의 감정 흐름이 끊기지 않도록 UX를 재설계했습니다. <br />팀
-                선택을 중심으로 콘텐츠를 개인화하고, 팬 커뮤니티·실시간
-                정보·나만의 팬 히스토리를 하나의 흐름으로 연결해 야구 팬의{" "}
-                <strong className="works-desc-strong">
-                  정체성과 몰입도를 강화
-                </strong>
-                하는 구조로 새롭게 설계했습니다.
+                정의한 팬 경험 중심의 모바일 서비스입니다.
+                <br />
+                저는{" "}
+                <strong className="works-desc-strong">팀장으로서</strong>{" "}
+                서비스의 핵심 컨셉 정의와 UX 전략 수립, IA 재구성을
+                리드했습니다. 기존의 경기 정보 나열형 구조에서 벗어나, 팬의
+                감정 흐름에 맞춘 응원–소통–기록 중심 구조로 설계했습니다.
+                일정 관리와 디자인 가이드라인 정립을 통해 팀의 방향성을
+                통일했습니다.
               </p>
               <div className="works-meta">
                 <span>UX/UI</span>
@@ -418,15 +418,22 @@ export default function Works() {
               <h3 className="works-title">Web Re:design</h3>
               <p className="works-subtitle">MONAMI</p>
               <p className="works-desc">
-                기존 웹사이트가 제품 정보를 나열하는 데 그쳤다면, 이번
-                리디자인은 프리미엄 라인을 중심으로{" "}
+                기존 모나미 웹사이트가 제품 정보를 나열하는 데 그쳤다면, 이번
+                리디자인은 프리미엄 라인을 중심으로 브랜드 철학을 스토리로
+                설계한 프로젝트입니다.
+                <br />
+                6인 팀 프로젝트에서{" "}
+                <strong className="works-desc-strong">팀장</strong>을 맡아
+                전체 방향성과 UX 전략을 리드했으며, 중반에는 시각적 완성도에
+                치우친 디자인을 전면
+                수정하고 방향을 재정립했습니다.
+                <br />
+                이후 ‘보여주는 디자인’이 아닌, 사용자가 브랜드를 이해하고
+                탐색하며{" "}
                 <strong className="works-desc-strong">
-                  모나미의 철학과 방향성을 설득력 있는 스토리
+                  행동으로 이어지도록 만드는 구조로 전환
                 </strong>
-                로 풀어내는 데 초점을 맞췄습니다. 개인에게는 취향을 발견하는
-                경험을, 파트너에게는 브랜드의 성장 비전을 직관적으로 전달하기
-                위해 브랜드 스토리와 프로세스를 하나의 흐름으로 설계한
-                웹사이트입니다.
+                해, 브랜드 스토리와 프로세스를 하나의 흐름으로 재설계했습니다.
               </p>
               <div className="works-meta">
                 <span>UX/UI</span>
