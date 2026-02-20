@@ -74,8 +74,8 @@ export default function Hero() {
         />
         <img
           className="hero-sticker hero-sticker-isee"
-          src="/img/sticker-iseeikeep.svg"
-          alt="I see and I keep sticker"
+          src="/img/sticker-aboutisee.svg"
+          alt="About I see sticker"
         />
         <img
           className="hero-sticker hero-sticker-love"
