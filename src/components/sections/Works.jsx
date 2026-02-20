@@ -323,13 +323,13 @@ export default function Works() {
                 <strong className="works-desc-strong">‘10번째 선수’</strong>로
                 정의한 팬 경험 중심의 모바일 서비스입니다.
                 <br />
-                저는{" "}
-                <strong className="works-desc-strong">팀장으로서</strong>{" "}
+                저는 <strong className="works-desc-strong">
+                  팀장으로서
+                </strong>{" "}
                 서비스의 핵심 컨셉 정의와 UX 전략 수립, IA 재구성을
-                리드했습니다. 기존의 경기 정보 나열형 구조에서 벗어나, 팬의
-                감정 흐름에 맞춘 응원–소통–기록 중심 구조로 설계했습니다.
-                일정 관리와 디자인 가이드라인 정립을 통해 팀의 방향성을
-                통일했습니다.
+                리드했습니다. 기존의 경기 정보 나열형 구조에서 벗어나, 팬의 감정
+                흐름에 맞춘 응원–소통–기록 중심 구조로 설계했습니다. 일정 관리와
+                디자인 가이드라인 정립을 통해 팀의 방향성을 통일했습니다.
               </p>
               <div className="works-meta">
                 <span>UX/UI</span>
@@ -423,10 +423,12 @@ export default function Works() {
                 설계한 프로젝트입니다.
                 <br />
                 6인 팀 프로젝트에서{" "}
-                <strong className="works-desc-strong">팀장</strong>을 맡아
-                전체 방향성과 UX 전략을 리드했으며, 중반에는 시각적 완성도에
-                치우친 디자인을 전면
-                수정하고 방향을 재정립했습니다.
+                <strong className="works-desc-strong">
+                  팀장을 맡아 전체 방향성과 디자인과 코딩 모두 전반적인 리드를
+                  맡았으며,
+                </strong>{" "}
+                디자인을 전면 수정하는 과정에서 사용자의 맥락 흐름을 고려하여
+                재설계했습니다.
                 <br />
                 이후 ‘보여주는 디자인’이 아닌, 사용자가 브랜드를 이해하고
                 탐색하며{" "}
