@@ -7,7 +7,7 @@
 }
 
 .hero {
-  background: #f0ebe6;
+  background: #;
   min-height: 100vh;
   display: grid;
   place-items: center;
@@ -248,7 +248,7 @@
 }
 
 .hero-text-solid {
-  fill: #d9f205;
+  fill: #b2d3ff;
 }
 
 .hero-sr {
