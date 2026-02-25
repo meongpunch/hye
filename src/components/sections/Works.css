@@ -650,6 +650,23 @@
   letter-spacing: 0.6px;
 }
 
+@media (max-width: 1600px) {
+  .works-sticker-dugout {
+    left: 10%;
+    top: 48%;
+  }
+
+  .works-sticker-monami {
+    right: 0%;
+    top: 82%;
+  }
+
+  .works-sticker-tippi {
+    right: 70%;
+    bottom: 6%;
+  }
+}
+
 @media (max-width: 1024px) {
   .works {
     padding: 120px 6vw 200px;

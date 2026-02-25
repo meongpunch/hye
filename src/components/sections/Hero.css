@@ -7,7 +7,7 @@
 }
 
 .hero {
-  background: #;
+  background: #000;
   min-height: 100vh;
   display: grid;
   place-items: center;
@@ -70,7 +70,7 @@
 .hero-mobile-line--design {
   font-family: "Arniya", "Times New Roman", serif;
   font-weight: 400;
-  color: #d9f205;
+  color: #b2d3ff;
 }
 
 .hero-mobile-line--shaped,
@@ -83,7 +83,7 @@
   font-family: "Times New Roman", serif;
   font-weight: 700;
   font-style: italic;
-  color: #d9f205;
+  color: #b2d3ff;
 }
 
 .hero-sticker {

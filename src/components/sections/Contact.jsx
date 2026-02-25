@@ -51,7 +51,7 @@ export default function Contact() {
               더 많은 내용은{" "}
               <a
                 className="contact-link"
-                href="https://www.notion.so/301d03c5473680e385c4e0d37abfa541"
+                href="https://www.notion.so/CV-310d03c54736812f93ffd45b4771920c?source=copy_link"
                 target="_blank"
                 rel="noreferrer noopener"
               >
