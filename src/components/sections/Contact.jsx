@@ -42,7 +42,7 @@ export default function Contact() {
         <div className="contact-top">
           <div className="contact-card">
             <span className="contact-chip">looking for designer?</span>
-            <h3>경험을 디자인하는 김혜원입니다.</h3>
+            <h3>관찰을 바탕으로 <br />맥락을 만드는 김혜원입니다.</h3>
           </div>
           <div className="contact-card">
             <span className="contact-chip">notion</span>

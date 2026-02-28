@@ -356,7 +356,7 @@ export default function About() {
             />
           </div>
 
-          <p className="about-body">
+          <p id="about-body-anchor" className="about-body">
             저는 일상에서 시선이 멈춘 순간을 놓치지 않으려 합니다. <br />
             이 포트폴리오에서는 그 순간들을 스티커로 표현했고, <br />
             세상을 바라보는 제 시선을 디자인으로 담았습니다.
@@ -364,7 +364,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="about-panel about-panel-copy" ref={copyRef}>
+      <section id="about-intro" className="about-panel about-panel-copy" ref={copyRef}>
         <div className="about-panel-inner">
           <div className="about-intro">
             <h3 className="about-intro-title">

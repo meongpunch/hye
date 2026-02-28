@@ -66,6 +66,7 @@
   white-space: nowrap;
   width: max-content;
   will-change: transform;
+  scroll-margin-top: 90px;
 }
 
 .about-quote .char {
