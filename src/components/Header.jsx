@@ -3,7 +3,7 @@ import "./Header.css";
 
 const navItems = [
   { id: "hero", label: "Home" },
-  { id: "about-quote", label: "About" },
+  { id: "about-body-anchor", label: "About" },
   { id: "work", label: "Works" },
   { id: "keyword", label: "Keyword" },
   { id: "qna", label: "Q&A" },
