@@ -387,18 +387,18 @@ export default function Works() {
               <ul className="works-skill-list">
                 <li>
                   <span>기획</span>
-                  <span className="works-skill-bar">{renderDots(70)}</span>
-                  <span className="works-skill-value">70%</span>
+                  <span className="works-skill-bar">{renderDots(50)}</span>
+                  <span className="works-skill-value">50%</span>
                 </li>
                 <li>
                   <span>디자인</span>
-                  <span className="works-skill-bar">{renderDots(90)}</span>
-                  <span className="works-skill-value">90%</span>
+                  <span className="works-skill-bar">{renderDots(40)}</span>
+                  <span className="works-skill-value">40%</span>
                 </li>
                 <li>
                   <span>퍼블리싱</span>
-                  <span className="works-skill-bar">{renderDots(80)}</span>
-                  <span className="works-skill-value">80%</span>
+                  <span className="works-skill-bar">{renderDots(30)}</span>
+                  <span className="works-skill-value">30%</span>
                 </li>
               </ul>
             </div>
@@ -493,18 +493,18 @@ export default function Works() {
               <ul className="works-skill-list">
                 <li>
                   <span>기획</span>
-                  <span className="works-skill-bar">{renderDots(90)}</span>
-                  <span className="works-skill-value">90%</span>
+                  <span className="works-skill-bar">{renderDots(50)}</span>
+                  <span className="works-skill-value">50%</span>
                 </li>
                 <li>
                   <span>디자인</span>
-                  <span className="works-skill-bar">{renderDots(70)}</span>
-                  <span className="works-skill-value">70%</span>
+                  <span className="works-skill-bar">{renderDots(50)}</span>
+                  <span className="works-skill-value">50%</span>
                 </li>
                 <li>
                   <span>퍼블리싱</span>
-                  <span className="works-skill-bar">{renderDots(80)}</span>
-                  <span className="works-skill-value">80%</span>
+                  <span className="works-skill-bar">{renderDots(40)}</span>
+                  <span className="works-skill-value">40%</span>
                 </li>
               </ul>
             </div>
