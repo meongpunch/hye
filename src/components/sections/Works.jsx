@@ -392,8 +392,8 @@ export default function Works() {
                 </li>
                 <li>
                   <span>디자인</span>
-                  <span className="works-skill-bar">{renderDots(40)}</span>
-                  <span className="works-skill-value">40%</span>
+                  <span className="works-skill-bar">{renderDots(50)}</span>
+                  <span className="works-skill-value">50%</span>
                 </li>
                 <li>
                   <span>퍼블리싱</span>
@@ -546,7 +546,7 @@ export default function Works() {
               <div className="works-meta-actions">
                 <a
                   className="works-meta-link"
-                  href="https://www.figma.com/proto/Wj3Nyt2XUynsKUzcLixxwn/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A0%95%EB%A6%AC?page-id=43%3A1325&node-id=43-4203&viewport=-151%2C357%2C0.07&t=L7XfFTiEXVsZcVJT-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=43%3A4203"
+                  href="https://www.figma.com/design/Wj3Nyt2XUynsKUzcLixxwn/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A0%95%EB%A6%AC?node-id=43-1325&t=TVmO2TBqRmXUHot1-1"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="TiPPi 작업물 열기"
